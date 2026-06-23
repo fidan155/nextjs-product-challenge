@@ -4,7 +4,28 @@ export const metadata = {
   keywords: ['Künstliche Intelligenz', 'Cyber Security', 'Softwareentwicklung', 'Next.js'],
 };
 
-export default function Home() {
+const featuresData = [
+  {
+    id: 1,
+    title: "KI-Code-Analyse",
+    description: "Scannt deinen Code während des Tippens und erkennt logische Fehler, bevor sie im Compiler landen."
+  },
+  {
+    id: 2,
+    title: "Automated SecOps",
+    description: "Prüft deine Abhängigkeiten und Code-Strukturen in Echtzeit auf bekannte Cyber-Security-Schwachstellen."
+  },
+  {
+    id: 3,
+    title: "Smart Refactoring",
+    description: "Schlägt dir per Klick sauberere, performantere und besser lesbare Code-Strukturen vor."
+  }
+];
+
+
+export default async function Home() {
+  // Wir simulieren eine Verzögerung (z. B. Netzwerk-Ladezeit von 100 Millisekunden)
+  await new Promise((resolve) => setTimeout(resolve, 100));
   return (
     <div className="bg-slate-900 text-white min-h-screen font-sans">
       {/* 1. Header */}
@@ -38,6 +59,39 @@ export default function Home() {
           </button>
         </div>
       </main>
-    </div>
-  );
+    
+
+{/* 3. Features Sektion (3-Spalten-Grid) */}
+<section id="features" className="mt-32 max-w-6xl mx-auto px-6">
+  <h2 className="text-3xl font-bold text-center mb-12">
+    Warum Entwickler <span className="text-blue-400">DevMind AI</span> lieben
+  </h2>
+  
+  {/* Das Grid-Layout mit CSS-Grid (Tailwind) */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {featuresData.map((feature) => (
+      <div 
+        key={feature.id} 
+        className="bg-slate-800/50 border border-slate-800 p-8 rounded-2xl transition-all duration-300 hover:border-blue-500/50 hover:bg-slate-800 hover:-translate-y-1 group"
+      >
+        {/* Subtiles Icon-Design (Cyber-Look) */}
+        <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400 font-bold group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+          0{feature.id}
+        </div>
+        
+        <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-400 transition-colors">
+          {feature.title}
+        </h3>
+        
+        <p className="text-slate-400 text-sm leading-relaxed">
+          {feature.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
+</div>
+
+);
 }
