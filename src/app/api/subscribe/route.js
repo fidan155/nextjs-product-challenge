@@ -17,7 +17,7 @@ export async function POST(request) {
     databaseMock.push({
       id: databaseMock.length + 1,
       email: email,
-      subscribedAt: new Date()
+      subscribedAt: new Date(),
     });
 
     // Konsolen-Log im VS Code Terminal
@@ -25,7 +25,10 @@ export async function POST(request) {
     console.log('Aktuelle Nutzer in der DB:', databaseMock);
 
     // Erfolgreiche Antwort ans Frontend senden
-    return NextResponse.json({ success: true, message: 'Gespeichert!' }, { status: 201 });
+    return NextResponse.json(
+      { success: true, message: 'Gespeichert!' },
+      { status: 201 }
+    );
   } catch (error) {
     return NextResponse.json({ error: 'Server-Fehler' }, { status: 500 });
   }
