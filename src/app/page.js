@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -117,13 +117,20 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:block">
-              Sign In
-            </button>
-            <button className="bg-white text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-slate-200 transition shadow-md shadow-white/10 flex items-center gap-1">
-              Deploy Now <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+            <Link 
+    href="/login" 
+    className="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:block"
+  >
+    Sign In
+  </Link>
+  
+  <Link 
+    href="/login" 
+    className="bg-white text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-slate-200 transition shadow-md shadow-white/10 flex items-center gap-1"
+  >
+    Deploy Now <ChevronRight className="w-4 h-4" />
+  </Link>
+</div>
         </div>
       </nav>
 
